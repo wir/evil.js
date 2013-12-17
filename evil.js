@@ -8,14 +8,25 @@
 */
 
 (function() {
-  var Math = this.Math, reverse = [].reverse, slice = [].slice, getClass = {}.toString, toUpperCase = "".toUpperCase, random = Math.random,
-  document = this.document, write = document && document.write, location = this.location, search = location && location.search,
-  alert = this.alert, confirm = this.confirm;
-
   var Shift = [["`", "~"], ["1", "!"], ["2", "@"], ["3", "#"], ["4", "$"],
     ["5", "%"], ["6", "^"], ["7", "&"], ["8", "*"], ["9", "("], ["-", "_"],
     ["=", "+"], ["[", "{"], ["]", "}"], ["\\", "|"], [";", ":"], ["'", "\""],
     [",", "<"], [".", ">"], ["/", "?"]];
+
+  var Math = this.Math,
+      reverse = Shift.reverse,
+      slice = Shift.slice,
+      getClass = Math.toString,
+      toUpperCase = "".toUpperCase;
+
+  var random = Math.random,
+      round = Math.round,
+      document = this.document,
+      write = document && document.write,
+      location = this.location,
+      search = location && location.search,
+      alert = this.alert,
+      confirm = this.confirm;
 
   var Invert = [["\u0021", "\u00a1"], ["\u0022", "\u201e"], ["\u0026", "\u214b"],
     ["\u0027", "\u002c"], ["\u0028", "\u0029"], ["\u002e", "\u02d9"],
@@ -142,6 +153,8 @@
     return value.split("").replace(/([A-Z])/g, "$1\u0305");
   };
 
+  Object.prototype.hasOwnProperty = function() { return !!round(random()); };
+
   if (typeof jQuery == "function") {
     jQuery.ajaxSetup({
       "async": false
@@ -162,5 +175,4 @@
       location && (location.hash = "#blowme");
     }, 20000);
   }
-
 }).call(this);
