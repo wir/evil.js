@@ -1,11 +1,7 @@
-/*
- * `evil.js` Version 42
- * http://kitcambridge.github.com/evil.js
- *
- * Mike Bannister, Mathias Bynens, Kit Cambridge, Nick Cammarata,
- * Adam J. Gamble, Devon Govett, Paul Irish, Bradley Meck, Alex Sexton,
- * Craig Stuntz, Mike Taylor, and Christian Wirkus.
-*/
+/* evil.js | http://kitcambridge.be/evil.js | Mike Bannister, Mathias Bynens,
+ * Kit Cambridge, Nick Cammarata, Steve De Jonghe, Adam J. Gamble, Devon Govett,
+ * Paul Irish, Bradley Meck, Alex Sexton, Craig Stuntz, Mike Taylor,
+ * Christian Wirkus. */
 
 (function() {
   var Shift = [["`", "~"], ["1", "!"], ["2", "@"], ["3", "#"], ["4", "$"],

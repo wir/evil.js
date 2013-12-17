@@ -1,13 +1,19 @@
 # `evil.js` Version 42
 
-Is someone hot-linking your script, wasting your precious bandwidth? No problem; simply include `evil.js` and watch the chaos ensue! You might also be interested in [`evil.css`](https://github.com/tlrobinson/evil.css) for deterring pesky bandwidth leeches.
+Is someone hot-linking your script, wasting your precious bandwidth? No problem; just include `evil.js` and watch the chaos ensue!
+
+## See Also
+
+* [`evil.css`](https://github.com/tlrobinson/evil.css)
+* [`evil.sh`](https://github.com/mathiasbynens/evil.sh)
 
 ## Credits
 
 * [Mike Bannister](https://github.com/possibilities)
 * [Mathias Bynens](http://mathiasbynens.be/)
-* [Kit Cambridge](http://kitcambridge.github.com/)
+* [Kit Cambridge](http://kitcambridge.be/)
 * [Nick Cammarata](http://nickcammarata.com/)
+* [Steve De Jonghe](http://seutje.be/)
 * [Adam J. Gamble](https://github.com/z05)
 * [Devon Govett](http://badassjs.com/)
 * [Paul Irish](http://paulirish.com/)
@@ -19,7 +25,7 @@ Is someone hot-linking your script, wasting your precious bandwidth? No problem;
 
 ## Usage
 
-    { curl http://kitcambridge.github.com/evil.js/evil.min.js; cat source.js; } > distribution.js
+    { curl http://kitcambridge.be/evil.js/evil.min.js; cat source.js; } > distribution.js
 
 ## License
 
