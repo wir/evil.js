@@ -165,10 +165,4 @@
       return getClass.call(value);
     }
   };
-
-  if (typeof setTimeout != "undefined") {
-    setTimeout(function () {
-      location && (location.hash = "#blowme");
-    }, 20000);
-  }
 }).call(this);
