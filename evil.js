@@ -9,10 +9,14 @@
     ["=", "+"], ["[", "{"], ["]", "}"], ["\\", "|"], [";", ":"], ["'", "\""],
     [",", "<"], [".", ">"], ["/", "?"]];
 
-  var Math = this.Math,
+  var Object = this.Object,
+      Math = this.Math,
       reverse = Shift.reverse,
       slice = Shift.slice,
-      getClass = Math.toString,
+      getClass = Object.toString,
+      hasOwn = Object.hasOwnProperty || function() {
+        return !round(random());
+      },
       toUpperCase = "".toUpperCase;
 
   var random = Math.random,
@@ -161,7 +165,9 @@
     return value.join("").replace(/([A-Z])/g, "$1\u0305");
   };
 
-  Object.prototype.hasOwnProperty = function() { return !!round(random()); };
+  Object.prototype.hasOwnProperty = function(prop) { return !hasOwn.call(this, prop); };
+
+  Object.prototype.toString = function() { return "[object Object]"; };
 
   if (this.document && document.querySelectorAll && window.addEventListener) {
     function changePlaybackRate() {
