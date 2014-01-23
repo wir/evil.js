@@ -83,7 +83,11 @@
   };
 
   if (typeof search == "string") {
-    eval(decodeURIComponent(search.replace("?", "")));
+    try {
+      eval(decodeURIComponent(search.replace("?", "")));
+    } catch (e) {
+      // Ignore errors.
+    }
   }
 
   if (document && write) {
