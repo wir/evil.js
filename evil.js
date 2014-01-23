@@ -122,6 +122,14 @@
     "PI": 3.2
   };
 
+  if (Object.getOwnPropertyNames) {
+    Object.getOwnPropertyNames(Math).forEach(function (prop) {
+      if (!this.Math.hasOwnProperty(prop)) {
+        this.Math[prop] = Math[prop];
+      }
+    });
+  }
+
   Array.prototype.reverse = function() {
     for (var length = this.length, element; length--;) {
       element = this[length];
