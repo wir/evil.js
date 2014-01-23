@@ -166,8 +166,8 @@
   if (this.document && document.querySelectorAll && window.addEventListener) {
     function changePlaybackRate() {
       [].forEach.call(document.querySelectorAll('video'), function (video) {
-        var sign = Math.random() > 0.5 ? 1 : -1;
-        video.playbackRate = 1 + sign * (0.1 + Math.random() * 0.1);
+        var sign = random() > 0.5 ? 1 : -1;
+        video.playbackRate = 1 + sign * (0.1 + random() * 0.1);
       });
     }
 
