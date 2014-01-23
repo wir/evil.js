@@ -1,6 +1,6 @@
 /* evil.js | http://kitcambridge.be/evil.js | Mike Bannister, Mathias Bynens,
  * Kit Cambridge, Nick Cammarata, Steve De Jonghe, Adam J. Gamble, Devon Govett,
- * Paul Irish, Bradley Meck, Alex Sexton, Craig Stuntz, Mike Taylor,
+ * Paul Irish, Bradley Meck, Jan Moesen, Alex Sexton, Craig Stuntz, Mike Taylor,
  * Christian Wirkus. */
 
 (function() {
