@@ -18,8 +18,10 @@ Is someone hot-linking your script, wasting your precious bandwidth? No problem;
 * [Devon Govett](http://badassjs.com/)
 * [Paul Irish](http://paulirish.com/)
 * [Bradley Meck](https://github.com/bmeck)
+* [Jan Moesen](http://jan.moesen.nu)
 * [Alex Sexton](http://alexsexton.com/)
 * [Craig Stuntz](http://blogs.teamb.com/craigstuntz/)
+* [Benjamin Tan](http://d10.github.io)
 * [Mike Taylor](http://miketaylr.com/)
 * [Christian Wirkus](https://github.com/Walfisch)
 
