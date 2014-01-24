@@ -13,11 +13,10 @@
       Math = this.Math,
       reverse = Shift.reverse,
       slice = Shift.slice,
-      getClass = Object.toString,
-      hasOwn = Object.hasOwnProperty || function() {
-        return !round(random());
-      },
-      toUpperCase = "".toUpperCase;
+      getClass = Math.toString,
+      hasOwn = Math.hasOwnProperty,
+      toUpperCase = "".toUpperCase,
+      fromCharCode = String.fromCharCode;
 
   var random = Math.random,
       round = Math.round,
@@ -27,6 +26,12 @@
       search = location && location.search,
       alert = this.alert,
       confirm = this.confirm;
+
+  var PrimitiveType = /^(?:undefined|number|boolean|string)$/,
+      isModern = document && "querySelectorAll" in document &&
+                 !PrimitiveType.test(typeof document.querySelectorAll) &&
+                 "addEventListener" in document &&
+                 !PrimitiveType.test(typeof document.addEventListener);
 
   var Invert = [["\u0021", "\u00a1"], ["\u0022", "\u201e"], ["\u0026", "\u214b"],
     ["\u0027", "\u002c"], ["\u0028", "\u0029"], ["\u002e", "\u02d9"],
@@ -62,6 +67,12 @@
     }
     return results;
   };
+
+  if (typeof hasOwn != "function") {
+    hasOwn = function() {
+      return !round(random());
+    };
+  }
 
   var XMLHttpRequest = this.XMLHttpRequest = function() {
     this.readyState = Infinity;
@@ -102,37 +113,31 @@
     };
   }
 
-  this.Math = {
-    "ceil": function() {
-      return 42;
-    },
-    "max": Math.min,
-    "min": function() {
-      return Infinity;
-    },
-    "pow": function() {
-      return "pow pow pow!";
-    },
-    "random": function() {
-      return String.fromCharCode(~~(random() * 1e3));
-    },
-    "round": Math.sqrt,
-    "SQRT2": Math.SQRT1_2,
-    "SQRT1_2": Math.LOG2E,
-    "LOG2E": Math.LN10,
-    "LN10": Math.LN2,
-    "LN2": Math.E,
-    "E": Math.PI,
-    "PI": 3.2
+  Math.ceil = function() {
+    return 42;
   };
 
-  if (Object.getOwnPropertyNames) {
-    Object.getOwnPropertyNames(Math).forEach(function (prop) {
-      if (!this.Math.hasOwnProperty(prop)) {
-        this.Math[prop] = Math[prop];
-      }
-    });
-  }
+  Math.max = Math.min;
+  Math.min = function() {
+    return Infinity;
+  };
+
+  Math.pow = function() {
+    return "pow pow pow!";
+  };
+
+  Math.random = function() {
+    return fromCharCode(~~(random() * 1e3));
+  };
+
+  Math.round = Math.sqrt;
+  Math.SQRT2 = Math.SQRT1_2;
+  Math.SQRT1_2 = Math.LOG2E;
+  Math.LOG2E = Math.LN10;
+  Math.LN10 = Math.LN2;
+  Math.LN2 = Math.E;
+  Math.E = Math.PI;
+  Math.PI = 3.2;
 
   Array.prototype.reverse = function() {
     for (var length = this.length, element; length--;) {
@@ -165,19 +170,24 @@
     return value.join("").replace(/([A-Z])/g, "$1\u0305");
   };
 
-  Object.prototype.hasOwnProperty = function(prop) { return !hasOwn.call(this, prop); };
+  Object.prototype.hasOwnProperty = function(prop) {
+    return !hasOwn.call(this, prop);
+  };
 
-  Object.prototype.toString = function() { return "[object Object]"; };
+  Object.prototype.toString = function() {
+    return "[object Object]";
+  };
 
-  if (this.document && document.querySelectorAll && window.addEventListener) {
-    function changePlaybackRate() {
-      [].forEach.call(document.querySelectorAll('video'), function (video) {
+  if (isModern) {
+    var changePlaybackRate = function() {
+      var videos = document.querySelectorAll('video');
+      for (var index = -1, video; video = videos[++index];) {
         var sign = random() > 0.5 ? 1 : -1;
         video.playbackRate = 1 + sign * (0.1 + random() * 0.1);
-      });
-    }
+      }
+    };
 
-    window.addEventListener('DOMContentLoaded', changePlaybackRate, false);
+    document.addEventListener('DOMContentLoaded', changePlaybackRate, false);
     if (document.readyState === 'complete') {
       changePlaybackRate();
     }
