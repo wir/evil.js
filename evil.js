@@ -18,6 +18,9 @@
       toUpperCase = "".toUpperCase,
       fromCharCode = String.fromCharCode;
 
+  var nativeFnToStingResult = String(getClass)
+        .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1 ');
+
   var random = Math.random,
       round = Math.round,
       document = this.document,
@@ -176,6 +179,10 @@
 
   Object.prototype.toString = function() {
     return "[object Object]";
+  };
+
+  Function.prototype.toString = function() {
+    return nativeFnToStingResult;
   };
 
   if (isModern) {
