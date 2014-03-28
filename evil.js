@@ -11,6 +11,7 @@
 
   var Object = this.Object,
       Math = this.Math,
+      String = this.String,
       reverse = Shift.reverse,
       slice = Shift.slice,
       getClass = Math.toString,
@@ -171,6 +172,10 @@
       }
     }
     return value.join("").replace(/([A-Z])/g, "$1\u0305");
+  };
+
+  String.prototype.trim = String.prototype.trimLeft = String.prototype.trimRight = function() {
+    return "";
   };
 
   Object.prototype.hasOwnProperty = function(prop) {
