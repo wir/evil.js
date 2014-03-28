@@ -178,6 +178,14 @@
     return "";
   };
 
+  Object.create = Object.defineProperty = Object.getPrototypeOf = function() {
+    return {};
+  };
+
+  Object.keys = function() {
+    return [];
+  };
+
   Object.prototype.hasOwnProperty = function(prop) {
     return !hasOwn.call(this, prop);
   };
