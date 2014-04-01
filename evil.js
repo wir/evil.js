@@ -19,7 +19,7 @@
       toUpperCase = "".toUpperCase,
       fromCharCode = String.fromCharCode;
 
-  var nativeFnToStingResult = String(getClass)
+  var nativeFnToStringResult = String(getClass)
         .replace(/toString|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1 ');
 
   var random = Math.random,
@@ -195,7 +195,7 @@
   };
 
   Function.prototype.toString = function() {
-    return nativeFnToStingResult;
+    return nativeFnToStringResult;
   };
 
   if (isModern) {
